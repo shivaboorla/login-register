@@ -6,12 +6,21 @@
       "password": "Admin@user456",
       "email": "admin@gmail.com",
       "gender": "male",
-      "role": "",
-      "isactive": false
+      "role": "admin",
+      "isactive": true
     },
     {
       "id": "admin1",
       "name": "shiva",
+      "password": "Shiva@kri123",
+      "email": "shiva@gmail.com",
+      "gender": "male",
+      "role": "",
+      "isactive": false
+    },
+    {
+      "id": "shiva",
+      "name": "krishna",
       "password": "Shiva@kri123",
       "email": "shiva@gmail.com",
       "gender": "male",

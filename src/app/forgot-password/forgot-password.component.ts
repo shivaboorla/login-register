@@ -14,9 +14,13 @@ export class ForgotPasswordComponent {
   }
 
   sendLink() {
-    this.service.forgotpassword(this.email);
-    this.toastr.success("we have sent link to your email id. please verify and then login");
-    this.email = '';
+    if (this.email) {
+      this.service.forgotpassword(this.email);
+      this.email = '';
+      this.toastr.success("we have sent link to your email id. please verify and then login");
+    } else {
+      this.toastr.warning("Enter email id");
+    }
   }
 
 }

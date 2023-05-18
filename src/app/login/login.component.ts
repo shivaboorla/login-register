@@ -15,7 +15,7 @@ export class LoginComponent {
   password = '';
   constructor(private formBuilder: FormBuilder, private toastr: ToastrService,
     private service: AuthService, private router: Router) {
-
+    sessionStorage.clear();
   }
   // userdata: any;
 

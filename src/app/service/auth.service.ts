@@ -19,7 +19,7 @@ export class AuthService {
       localStorage.setItem('token', 'true');
       this.router.navigate(['/home']);
     }, err => {
-      this.toastr.error('something went wrong!!');
+      this.toastr.error('Invalid Username or Passowrd!!');
       this.router.navigate(['/login']);
     }
     )
@@ -48,7 +48,7 @@ export class AuthService {
     this.fireauth.sendPasswordResetEmail(email).then(() => {
       this.router.navigate(['/login'])
     }, err => {
-      this.toastr.warning('enter email id');
+      this.toastr.warning(err.message);
     })
 
   }
@@ -64,5 +64,14 @@ export class AuthService {
   }
   updateUser(code: any, inputdata: any) {
     return this.http.put(this.apiUrl + '/' + code, inputdata)
+  }
+  isLoggedIn() {
+    // localStorage.setItem('token', 'true');
+    return sessionStorage.getItem('email') != null;
+    // this.router.navigate(['/login']);
+    // return sessionStorage.getItem('email') != null;
+  }
+  getUserRole() {
+    return sessionStorage.getItem('userrole') != null ? sessionStorage.getItem('userrole')?.toString() : "";
   }
 }
